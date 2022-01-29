@@ -1,10 +1,12 @@
 <template>
-  <select v-model="selectedZone">
+  <select
+    v-model="selectedZone"
+    @change="$emit('changed', $event.target.value)"
+  >
     <option v-for="(zone, index) in zones" :key="index">
       {{ zone }}
     </option>
   </select>
-  <span>Selected: {{ selectedZone }}</span>
 </template>
 
 <script lang="ts">
@@ -16,6 +18,7 @@ export default defineComponent({
   props: {
     startingZone: String,
   },
+  emits: ["changed"],
   data() {
     return {
       zones: moment.tz.names(),

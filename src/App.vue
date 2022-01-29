@@ -4,8 +4,7 @@
     <label for="date"></label>
     <input id="date" v-model="timeString" type="time" />
     <label for="time"></label>
-    {{ zoneString }}
-    <TimeZonesList :startingZone="zoneString" />
+    <TimeZonesList :startingZone="zoneString" @changed="test" />
   </form>
   <table>
     <thead>
@@ -73,8 +72,13 @@ export default defineComponent({
         return this.datetime.zoneName;
       },
       set: function (newZone: string): void {
-        this.datetime = this.datetime.setZone(newZone);
+        console.log(newZone);
       },
+    },
+  },
+  methods: {
+    test(newZone: string) {
+      this.datetime = this.datetime.setZone(newZone);
     },
   },
 });

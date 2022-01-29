@@ -1,8 +1,8 @@
 <template>
   <form>
-    <input id="date" v-model="datetime" type="datetime" />
+    <input id="date" v-model="datetime" type="date" />
     <label for="date"></label>
-    <input id="date" v-model="time" type="datetime" />
+    <input id="date" v-model="time" type="time" />
     <label for="time"></label>
     <input id="timezone" v-model="timezone" type="datetime" />
     <label for="timezone"></label>
@@ -13,13 +13,13 @@
       <td>you will get</td>
     </thead>
     <tbody>
-        <CopyBox :datetime="datetime" format="d" />
-        <CopyBox :datetime="datetime" format="D" />
-        <CopyBox :datetime="datetime" format="t" />
-        <CopyBox :datetime="datetime" format="T" />
-        <CopyBox :datetime="datetime" format="f" />
-        <CopyBox :datetime="datetime" format="F" />
-        <CopyBox :datetime="datetime" format="R" />
+      <TimesTableRow :datetime="datetime" format="d" />
+      <TimesTableRow :datetime="datetime" format="D" />
+      <TimesTableRow :datetime="datetime" format="t" />
+      <TimesTableRow :datetime="datetime" format="T" />
+      <TimesTableRow :datetime="datetime" format="f" />
+      <TimesTableRow :datetime="datetime" format="F" />
+      <TimesTableRow :datetime="datetime" format="R" />
     </tbody>
   </table>
 </template>
@@ -27,12 +27,12 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { DateTime } from "luxon";
-import CopyBox from "./components/CopyBox.vue";
+import TimesTableRow from "./components/TimesTableRow.vue";
 
 export default defineComponent({
   name: "App",
   components: {
-    CopyBox,
+    TimesTableRow,
   },
   data() {
     return {

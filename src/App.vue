@@ -1,8 +1,8 @@
 <template>
   <form>
-    <input id="date" v-model="datetime" type="date" />
+    <input id="date" v-model="dateString" type="date" />
     <label for="date"></label>
-    <input id="date" v-model="time" type="time" />
+    <input id="date" v-model="timeString" type="time" />
     <label for="time"></label>
     <input id="timezone" v-model="timezone" type="datetime" />
     <label for="timezone"></label>
@@ -37,9 +37,36 @@ export default defineComponent({
   data() {
     return {
       datetime: DateTime.now(),
-      time: 123,
       timezone: "America/Mexico_City",
     };
+  },
+  computed: {
+    dateString: {
+      get: function (): string {
+        return this.datetime.toFormat("yyyy-LL-dd");
+      },
+      set: function (newDate: string): void {
+        const change = DateTime.fromISO(newDate);
+        this.datetime = this.datetime.set({
+          year: change.year,
+          month: change.month,
+          day: change.day,
+        });
+      },
+    },
+    timeString: {
+      get: function (): string {
+        return this.datetime.toFormat("HH:mm");
+      },
+      set: function (newDate: string): void {
+        console.log(newDate);
+        const change = DateTime.fromISO(newDate);
+        this.datetime = this.datetime.set({
+          hour: change.hour,
+          minute: change.minute,
+        });
+      },
+    },
   },
 });
 </script>

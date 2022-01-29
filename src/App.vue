@@ -4,8 +4,8 @@
     <label for="date"></label>
     <input id="date" v-model="timeString" type="time" />
     <label for="time"></label>
-    <input id="timezone" v-model="zoneString" type="datetime" />
-    <label for="timezone"></label>
+    {{ zoneString }}
+    <TimeZonesList :startingZone="zoneString" />
   </form>
   <table>
     <thead>
@@ -28,11 +28,13 @@
 import { defineComponent } from "vue";
 import { DateTime } from "luxon";
 import TimesTableRow from "./components/TimesTableRow.vue";
+import TimeZonesList from "./components/TimeZonesList.vue";
 
 export default defineComponent({
   name: "App",
   components: {
     TimesTableRow,
+    TimeZonesList,
   },
   data() {
     return {

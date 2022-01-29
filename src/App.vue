@@ -4,7 +4,7 @@
     <label for="date"></label>
     <input id="date" v-model="timeString" type="time" />
     <label for="time"></label>
-    <input id="timezone" v-model="timezone" type="datetime" />
+    <input id="timezone" v-model="zoneString" type="datetime" />
     <label for="timezone"></label>
   </form>
   <table>
@@ -37,7 +37,6 @@ export default defineComponent({
   data() {
     return {
       datetime: DateTime.now(),
-      timezone: "America/Mexico_City",
     };
   },
   computed: {
@@ -65,6 +64,14 @@ export default defineComponent({
           hour: change.hour,
           minute: change.minute,
         });
+      },
+    },
+    zoneString: {
+      get: function (): string {
+        return this.datetime.zoneName;
+      },
+      set: function (newZone: string): void {
+        this.datetime = this.datetime.setZone(newZone);
       },
     },
   },

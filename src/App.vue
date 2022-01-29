@@ -1,16 +1,45 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+  <form>
+    <input id="date" v-model="datetime" type="datetime" />
+    <label for="date"></label>
+    <input id="date" v-model="time" type="datetime" />
+    <label for="time"></label>
+    <input id="timezone" v-model="timezone" type="datetime" />
+    <label for="timezone"></label>
+  </form>
+  <table>
+    <thead>
+      <td>If you paste this in chat</td>
+      <td>you will get</td>
+    </thead>
+    <tbody>
+        <CopyBox :datetime="datetime" format="d" />
+        <CopyBox :datetime="datetime" format="D" />
+        <CopyBox :datetime="datetime" format="t" />
+        <CopyBox :datetime="datetime" format="T" />
+        <CopyBox :datetime="datetime" format="f" />
+        <CopyBox :datetime="datetime" format="F" />
+        <CopyBox :datetime="datetime" format="R" />
+    </tbody>
+  </table>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import HelloWorld from "./components/HelloWorld.vue";
+import { DateTime } from "luxon";
+import CopyBox from "./components/CopyBox.vue";
 
 export default defineComponent({
   name: "App",
   components: {
-    HelloWorld,
+    CopyBox,
+  },
+  data() {
+    return {
+      datetime: DateTime.now(),
+      time: 123,
+      timezone: "America/Mexico_City",
+    };
   },
 });
 </script>

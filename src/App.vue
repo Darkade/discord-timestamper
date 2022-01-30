@@ -59,7 +59,6 @@ export default defineComponent({
         return this.datetime.toFormat("HH:mm");
       },
       set: function (newDate: string): void {
-        console.log(newDate);
         const change = DateTime.fromISO(newDate);
         this.datetime = this.datetime.set({
           hour: change.hour,
@@ -67,13 +66,8 @@ export default defineComponent({
         });
       },
     },
-    zoneString: {
-      get: function (): string {
-        return this.datetime.zoneName;
-      },
-      set: function (newZone: string): void {
-        console.log(newZone);
-      },
+    zoneString(): string {
+      return this.datetime.zoneName;
     },
   },
   methods: {

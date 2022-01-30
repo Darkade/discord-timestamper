@@ -14,7 +14,7 @@ import { defineComponent } from "vue";
 import * as moment from "moment-timezone";
 
 export default defineComponent({
-  name: "CopyBox",
+  name: "TimeZonesList",
   props: {
     startingZone: String,
   },

@@ -1,6 +1,6 @@
 <template>
   <tr>
-    <td>{{ secondsString }}</td>
+    <td><CopyBox :text="secondsString" /></td>
     <td>{{ formatString }}</td>
   </tr>
 </template>
@@ -8,9 +8,13 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { DateTime } from "luxon";
+import CopyBox from "./CopyBox.vue";
 
 export default defineComponent({
-  name: "CopyBox",
+  name: "TimesTableRow",
+  components: {
+    CopyBox,
+  },
   props: {
     datetime: {
       type: DateTime,

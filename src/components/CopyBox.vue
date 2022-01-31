@@ -39,7 +39,11 @@ div {
 }
 
 div:hover {
-  box-shadow: 4px 4px 3px #aaa;
+  box-shadow: 2px 3px 3px #aaa;
+}
+
+div:active {
+  box-shadow: 0px 0px 0px #aaa;
 }
 
 span {

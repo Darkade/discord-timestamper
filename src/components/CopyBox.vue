@@ -30,12 +30,12 @@ export default defineComponent({
 <style scoped>
 div {
   padding: 5px 15px;
-  border: solid #2c3e50 1px;
+  border: 1px solid #d3d7db;
   border-radius: 15px;
   vertical-align: middle;
   background: linear-gradient(90deg, #0eb5c4 24%, #fafafc 24%);
   cursor: pointer;
-  box-shadow: 2px 2px 3px #aaa;
+  box-shadow: 2px 2px 2px #bfbcbc;
 }
 
 div:hover {

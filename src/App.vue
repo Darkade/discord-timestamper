@@ -129,7 +129,7 @@ table {
     -webkit-transform 350ms;
   transition: box-shadow 350ms, border-color 350ms, transform 350ms,
     -webkit-transform 350ms;
-  font-size: 18px;
+  font-size: 17px;
   line-height: 35px;
   border-spacing: 0.5rem;
 }
